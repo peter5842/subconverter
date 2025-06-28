@@ -16,8 +16,11 @@ cd ..
 git clone https://github.com/ftk/quickjspp --depth=1
 cd quickjspp
 patch quickjs/quickjs-libc.c -i ../scripts/patches/0001-quickjs-libc-add-realpath-for-Windows.patch
-cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release .
+cmake -G "Unix Makefiles" \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_C_FLAGS="-D__MINGW_FENV_DEFINED" .
 make quickjs -j4
+
 install -d "$MINGW_PREFIX/lib/quickjs/"
 install -m644 quickjs/libquickjs.a "$MINGW_PREFIX/lib/quickjs/"
 install -d "$MINGW_PREFIX/include/quickjs"
@@ -53,5 +56,5 @@ cmake -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" .
 make -j4
 rm subconverter.exe
 # shellcheck disable=SC2046
-g++ $(find CMakeFiles/subconverter.dir/src -name "*.obj") curl/lib/libcurl.a -o base/subconverter.exe -static -lbcrypt -lpcre2-8 -l:quickjs/libquickjs.a -llibcron -lyaml-cpp -liphlpapi -lcrypt32 -lws2_32 -lwsock32 -lz -s
+g++ $(find CMakeFiles/subconverter.dir/src -name "*.obj") curl/lib/libcurl.a -o base/subconverter.exe -static -Wl,--allow-multiple-definition -lbcrypt -lpcre2-8  -llibcron -lyaml-cpp -liphlpapi -lcrypt32 -lws2_32 -lwsock32 -lz  -Lquickjspp/quickjs -lquickjs -s 
 mv base subconverter
