@@ -204,7 +204,7 @@ void hysteriaConstruct(
     node.HopInterval = to_int(hop_interval);
     if (!alpn.empty())
     {
-        node.Alpn = StringArray {alpn};
+        node.Alpn = alpn;
     }
 }
 
@@ -242,11 +242,11 @@ void hysteria2Construct(
     node.Fingerprint = fingerprint;
     if (!alpn.empty())
     {
-        node.Alpn = StringArray {alpn};
+        node.Alpn = alpn;
     }
     node.Ca = ca;
     node.CaStr = caStr;
-    node.CWND = to_int(cwnd);
+    node.Cwnd = to_int(cwnd);
     node.HopInterval = to_int(hop_interval);
 }
 
