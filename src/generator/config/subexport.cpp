@@ -946,7 +946,7 @@ std::string proxyToSurge(std::vector<Proxy> &nodes, const std::string &base_conf
                 continue;
             proxy = "hysteria, " + hostname + ", " + port + ", password=" + password;
             if(x.DownSpeed)
-                proxy += ", download-bandwidth=" + x.DownSpeed;
+                proxy += ", download-bandwidth=" + std::to_string(x.DownSpeed);
             
             if(!scv.is_undef())
                 proxy += ",skip-cert-verify=" + std::string(scv.get() ? "true" : "false");
