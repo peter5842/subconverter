@@ -146,6 +146,17 @@ struct Proxy {
     String PacketEncoding;
     String Multiplexing;
     tribool V2rayHttpUpgrade;
+    
+    // Hysteria2 specific fields
+    tribool DisableMtuDiscovery;
+    uint32_t HopInterval = 0;
+    String Up;
+    String Down;
+    String Ca;
+    String CaStr;
+    uint32_t RecvWindowConn = 0;
+    uint32_t RecvWindow = 0;
+    uint32_t Cwnd = 0;
 };
 
 #define SS_DEFAULT_GROUP "SSProvider"
