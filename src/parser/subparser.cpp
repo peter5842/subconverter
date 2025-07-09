@@ -1011,7 +1011,7 @@ void explodeQuan(const std::string &quan, Proxy &node) {
 
         //read link
         for (uint32_t i = 6; i < configs.size(); i++) {
-            vArray = split(configs[i], "=");
+            vArray = splitKeyValue(configs[i], "=");
             if (vArray.size() < 2)
                 continue;
             itemName = trim(vArray[0]);
@@ -2014,7 +2014,7 @@ bool explodeSurge(std::string surge, std::vector<Proxy> &nodes) {
                 password = trim(configs[4]);
 
                 for (i = 6; i < configs.size(); i++) {
-                    vArray = split(configs[i], "=");
+                    vArray = splitKeyValue(configs[i], "=");
                     if (vArray.size() < 2)
                         continue;
                     itemName = trim(vArray[0]);
@@ -2055,7 +2055,7 @@ bool explodeSurge(std::string surge, std::vector<Proxy> &nodes) {
                     continue;
 
                 for (i = 3; i < configs.size(); i++) {
-                    vArray = split(configs[i], "=");
+                    vArray = splitKeyValue(configs[i], "=");
                     if (vArray.size() < 2)
                         continue;
                     itemName = trim(vArray[0]);
@@ -2102,7 +2102,7 @@ bool explodeSurge(std::string surge, std::vector<Proxy> &nodes) {
                     password = trim(configs[4]);
                 }
                 for (i = 5; i < configs.size(); i++) {
-                    vArray = split(configs[i], "=");
+                    vArray = splitKeyValue(configs[i], "=");
                     if (vArray.size() < 2)
                         continue;
                     itemName = trim(vArray[0]);
@@ -2132,7 +2132,7 @@ bool explodeSurge(std::string surge, std::vector<Proxy> &nodes) {
                 method = "auto";
 
                 for (i = 3; i < configs.size(); i++) {
-                    vArray = split(configs[i], "=");
+                    vArray = splitKeyValue(configs[i], "=");
                     if (vArray.size() != 2)
                         continue;
                     itemName = trim(vArray[0]);
@@ -2193,7 +2193,7 @@ bool explodeSurge(std::string surge, std::vector<Proxy> &nodes) {
                 if (port == "0")
                     continue;
                 for (i = 3; i < configs.size(); i++) {
-                    vArray = split(configs[i], "=");
+                    vArray = splitKeyValue(configs[i], "=");
                     if (vArray.size() < 2)
                         continue;
                     itemName = trim(vArray[0]);
@@ -2221,7 +2221,7 @@ bool explodeSurge(std::string surge, std::vector<Proxy> &nodes) {
                     continue;
 
                 for (i = 3; i < configs.size(); i++) {
-                    vArray = split(configs[i], "=");
+                    vArray = splitKeyValue(configs[i], "=");
                     if (vArray.size() != 2)
                         continue;
                     itemName = trim(vArray[0]);
@@ -2264,7 +2264,7 @@ bool explodeSurge(std::string surge, std::vector<Proxy> &nodes) {
                     continue;
 
                 for (i = 3; i < configs.size(); i++) {
-                    vArray = split(configs[i], "=");
+                    vArray = splitKeyValue(configs[i], "=");
                     if (vArray.size() != 2)
                         continue;
                     itemName = trim(vArray[0]);
@@ -2301,7 +2301,7 @@ bool explodeSurge(std::string surge, std::vector<Proxy> &nodes) {
                 break;
             case "wireguard"_hash:
                 for (i = 1; i < configs.size(); i++) {
-                    vArray = split(trim(configs[i]), "=");
+                    vArray = splitKeyValue(trim(configs[i]), "=");
                     if (vArray.size() != 2)
                         continue;
                     itemName = trim(vArray[0]);
@@ -2364,7 +2364,7 @@ bool explodeSurge(std::string surge, std::vector<Proxy> &nodes) {
                             continue;
 
                         for (i = 1; i < configs.size(); i++) {
-                            vArray = split(trim(configs[i]), "=");
+                            vArray = splitKeyValue(trim(configs[i]), "=");
                             if (vArray.size() != 2)
                                 continue;
                             itemName = trim(vArray[0]);
@@ -2459,7 +2459,7 @@ bool explodeSurge(std::string surge, std::vector<Proxy> &nodes) {
                         net = "tcp";
 
                         for (i = 1; i < configs.size(); i++) {
-                            vArray = split(trim(configs[i]), "=");
+                            vArray = splitKeyValue(trim(configs[i]), "=");
                             if (vArray.size() != 2)
                                 continue;
                             itemName = trim(vArray[0]);
@@ -2526,7 +2526,7 @@ bool explodeSurge(std::string surge, std::vector<Proxy> &nodes) {
                         net = "tcp";
 
                         for (i = 1; i < configs.size(); i++) {
-                            vArray = split(trim(configs[i]), "=");
+                            vArray = splitKeyValue(trim(configs[i]), "=");
                             if (vArray.size() != 2)
                                 continue;
                             itemName = trim(vArray[0]);
@@ -2592,7 +2592,7 @@ bool explodeSurge(std::string surge, std::vector<Proxy> &nodes) {
                             continue;
 
                         for (i = 1; i < configs.size(); i++) {
-                            vArray = split(trim(configs[i]), "=");
+                            vArray = splitKeyValue(trim(configs[i]), "=");
                             if (vArray.size() != 2)
                                 continue;
                             itemName = trim(vArray[0]);
@@ -2644,7 +2644,7 @@ bool explodeSurge(std::string surge, std::vector<Proxy> &nodes) {
                             continue;
 
                         for (i = 1; i < configs.size(); i++) {
-                            vArray = split(trim(configs[i]), "=");
+                            vArray = splitKeyValue(trim(configs[i]), "=");
                             if (vArray.size() != 2)
                                 continue;
                             itemName = trim(vArray[0]);
